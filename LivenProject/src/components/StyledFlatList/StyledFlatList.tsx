@@ -1,6 +1,12 @@
 import React from 'react';
-import {FlatList, Image, Text, View} from 'react-native';
-import {Rating} from 'react-native-ratings';
+import {FlatList} from 'react-native';
+import {
+  Container,
+  PriceText,
+  ProductImage,
+  StyledText,
+  TextContiner,
+} from './StyledFlatList.styles';
 
 export type Product = {
   id: string;
@@ -16,52 +22,24 @@ export type Props = {
 };
 
 function StyledFlatList({DATA}: Props) {
-  console.log(DATA);
-
   return (
     <FlatList
       data={DATA}
       numColumns={2}
       renderItem={({item}) => {
         return (
-          <View
-            style={{
-              flex: 1,
-              marginTop: 16,
-              marginHorizontal: 4,
-              backgroundColor: 'white',
-              borderRadius: 16,
-            }}>
-            <Image
-              style={{
-                marginTop: 8,
-                alignSelf: 'center',
-                width: 256,
-                height: 192,
-                resizeMode: 'contain',
-              }}
+          <Container>
+            <ProductImage
               source={{
                 // uri: item.image,
                 uri: 'https://reactnative.dev/img/tiny_logo.png',
               }}
             />
-            <View
-              style={{
-                flex: 1,
-                alignItems: 'flex-start',
-                marginLeft: 16,
-                marginVertical: 8,
-              }}>
-              <Text style={{color: '#404040'}}>{item.name}</Text>
-              <Text
-                style={{
-                  color: '#FB6773',
-                  fontWeight: 'bold',
-                }}>
-                {`R$ ${item.price}`}
-              </Text>
-            </View>
-          </View>
+            <TextContiner>
+              <StyledText>{item.name}</StyledText>
+              <PriceText>{`R$ ${item.price}`}</PriceText>
+            </TextContiner>
+          </Container>
         );
       }}
       keyExtractor={item => item.id}
