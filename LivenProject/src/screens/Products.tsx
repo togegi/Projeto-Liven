@@ -1,7 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
-import {SafeAreaView} from 'react-native';
 import StyledFlatList from '../components/StyledFlatList/StyledFlatList';
+import {Container} from './Products.styles';
+import StyledModal from '../components/StyledModal/StyledModal';
+import {Product} from '../types/types';
 
 const Products = () => {
   const [productList, setProductList] = useState([]);
@@ -11,16 +13,34 @@ const Products = () => {
       return setProductList(response.data);
     });
 
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+  const closeModal = () => {
+    setModalVisible(false);
+  };
+
+  const addToCart = () => {
+    setModalVisible(false);
+  };
+
+  const openModal = (item: Product) => {
+    setModalVisible(true);
+    setSelectedProduct(item);
+  };
+
   return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        paddingVertical: 8,
-        paddingHorizontal: 4,
-        backgroundColor: '#F2F2F2',
-      }}>
-      <StyledFlatList DATA={productList} />
-    </SafeAreaView>
+    <Container>
+      <StyledFlatList products={productList} onPress={openModal} />
+      {selectedProduct && (
+        <StyledModal
+          product={selectedProduct}
+          isVisible={modalVisible}
+          onCancel={closeModal}
+          onContinue={addToCart}
+        />
+      )}
+    </Container>
   );
 };
 

@@ -1,7 +1,7 @@
-import {Image, Text, View} from 'react-native';
+import {Image, Text, View, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
 
-export const Container = styled(View)`
+export const Container = styled(TouchableOpacity)`
   flex: 1;
   margin-top: 16px;
   margin-horizontal: 4px;
@@ -19,8 +19,7 @@ export const ProductImage = styled(Image).attrs({
 `;
 
 export const TextContiner = styled(View)`
-  flex: 1;
-  aligni-tems: flex-start;
+  align-items: flex-start;
   margin-left: 16px;
   margin-vertical: 8px;
 `;
