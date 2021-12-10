@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import StyledFlatList from '../components/StyledFlatList/StyledFlatList';
-import {Container} from './Products.styles';
-import StyledModal from '../components/StyledModal/StyledModal';
-import {Product} from '../types/types';
+import StyledFlatList from '../../components/StyledFlatList/StyledFlatList';
+import {Container} from './Cart.styles';
+import StyledModal from '../../components/StyledModal/StyledModal';
+import {Product} from '../../types/types';
 
 const Products = () => {
   const [productList, setProductList] = useState([]);
