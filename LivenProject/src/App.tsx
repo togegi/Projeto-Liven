@@ -5,6 +5,7 @@ import Products from './screens/productsScreen/Products';
 import Cart from './screens/cartScreen/Cart';
 import navigationStyles from './navigationStyles';
 import HeaderCartButton from './components/HeaderCartButton/HeaderCartButton';
+import HeaderBackButton from './components/HeaderBackButton/HeaderBackButton';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,7 +25,11 @@ function App(): JSX.Element {
         <Stack.Screen
           name="Cart"
           component={Cart}
-          options={{title: 'Carrinho', ...navigationStyles}}
+          options={{
+            title: 'Carrinho',
+            ...navigationStyles,
+            headerLeft: () => <HeaderBackButton />,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,5 +1,6 @@
-import {Platform, Pressable} from 'react-native';
+import {Platform, Pressable, Image} from 'react-native';
 import styled from 'styled-components/native';
+import BackIcon from '../../assets/BackIcon.png';
 
 export const AndroidContainer = styled(Pressable).attrs({
   android_ripple: {
@@ -27,3 +28,11 @@ export const Container = styled(
     left: 16,
   },
 })``;
+
+export const StyledBackIcon = styled(Image).attrs({
+  source: BackIcon,
+  resizeMode: 'contain',
+})`
+  width: 20px;
+  height: 20px;
+`;

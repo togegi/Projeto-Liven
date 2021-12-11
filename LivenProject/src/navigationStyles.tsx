@@ -1,6 +1,4 @@
-import React from 'react';
 import {NativeStackNavigationOptions} from '@react-navigation/native-stack';
-import HeaderButton from './components/HeaderBackButton/HeaderBackButton';
 
 const navigationStyles: NativeStackNavigationOptions = {
   headerTintColor: '#404040',
@@ -13,7 +11,6 @@ const navigationStyles: NativeStackNavigationOptions = {
   headerStyle: {
     backgroundColor: '#FFFFFF',
   },
-  headerLeft: () => <HeaderButton />,
 };
 
 export default navigationStyles;

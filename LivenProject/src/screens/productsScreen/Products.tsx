@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import StyledFlatList from '../../components/StyledFlatList/StyledFlatList';
+import StyledProductsList from '../../components/StyledProductsList/StyledProductsList';
 import {Container} from './Products.styles';
 import StyledModal from '../../components/StyledModal/StyledModal';
 import {Product} from '../../types/types';
@@ -31,7 +31,7 @@ const Products = () => {
 
   return (
     <Container>
-      <StyledFlatList products={productList} onPress={openModal} />
+      <StyledProductsList products={productList} onPress={openModal} />
       {selectedProduct && (
         <StyledModal
           product={selectedProduct}

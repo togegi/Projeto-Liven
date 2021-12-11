@@ -7,14 +7,14 @@ import {
   ProductImage,
   StyledText,
   TextContiner,
-} from './StyledFlatList.styles';
+} from './StyledProductsList.styles';
 
-interface StyledFlatListProps {
+interface StyledProductListProps {
   products: Product[];
   onPress: (item: Product) => void;
 }
 
-const StyledFlatList = ({products, onPress}: StyledFlatListProps) => {
+const StyledProductList = ({products, onPress}: StyledProductListProps) => {
   return (
     <>
       <FlatList
@@ -42,4 +42,4 @@ const StyledFlatList = ({products, onPress}: StyledFlatListProps) => {
   );
 };
 
-export default StyledFlatList;
+export default StyledProductList;
