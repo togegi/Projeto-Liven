@@ -7,10 +7,10 @@ import {
   ProductImage,
   StyledText,
   TextContiner,
-} from './StyledProductsList.styles';
+} from './StyledProductList.styles';
 
 interface StyledProductListProps {
-  products?: Product[];
+  products: Product[];
   onPress: (item: Product) => void;
 }
 

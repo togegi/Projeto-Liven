@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Modal} from 'react-native';
-import {Product} from '../../types/types';
+import {Product, ProductOnCart} from '../../types';
 import {
   ButtonText,
   CancelButton,
@@ -18,7 +18,7 @@ interface StyledModalProps {
   product: Product;
   isVisible: boolean;
   onCancel: () => void;
-  onContinue: () => void;
+  onContinue: (product: ProductOnCart) => void;
 }
 
 const StyledModal = ({
@@ -67,7 +67,9 @@ const StyledModal = ({
         <ButtonContainer>
           <ConfirmButton
             onPress={() => {
-              onContinue();
+              let helper: ProductOnCart = product;
+              helper.amount = productAmount;
+              onContinue(helper);
               setProductAmount(1);
             }}>
             <ButtonText>Adicionar ao Carrinho</ButtonText>

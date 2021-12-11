@@ -1,6 +1,6 @@
 import React from 'react';
 import {FlatList, View} from 'react-native';
-import {Product} from '../../types/types';
+import {ProductOnCart} from '../../types';
 import {
   HorizontalContainer,
   Container,
@@ -12,7 +12,7 @@ import {
 } from './StyledCartList.styles';
 
 interface StyledProductListProps {
-  products: Product[];
+  products?: ProductOnCart[];
 }
 
 const StyledProductList = ({products}: StyledProductListProps) => {
@@ -40,7 +40,7 @@ const StyledProductList = ({products}: StyledProductListProps) => {
                   <AmountButton onPress={() => {}}>
                     <StyledText>-</StyledText>
                   </AmountButton>
-                  <StyledText>{'1'}</StyledText>
+                  <StyledText>{item.amount}</StyledText>
                   <AmountButton onPress={() => {}}>
                     <StyledText>+</StyledText>
                   </AmountButton>
