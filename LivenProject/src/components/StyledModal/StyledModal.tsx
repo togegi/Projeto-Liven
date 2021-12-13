@@ -67,9 +67,9 @@ const StyledModal = ({
         <ButtonContainer>
           <ConfirmButton
             onPress={() => {
-              let helper: ProductOnCart = product;
-              helper.amount = productAmount;
-              onContinue(helper);
+              let aux: ProductOnCart = product;
+              product.amount = productAmount;
+              onContinue(aux);
               setProductAmount(1);
             }}>
             <ButtonText>Adicionar ao Carrinho</ButtonText>

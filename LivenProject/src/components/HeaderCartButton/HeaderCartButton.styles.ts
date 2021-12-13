@@ -1,4 +1,4 @@
-import {Platform, Pressable, Image} from 'react-native';
+import {Platform, Pressable, Image, Text, View} from 'react-native';
 import styled from 'styled-components/native';
 import CartIcon from '../../assets/CartIcon.png';
 
@@ -9,7 +9,6 @@ export const AndroidContainer = styled(Pressable).attrs({
     radius: 20,
   },
 })`
-  margin-right: 16px;
   margin-left: 14px;
 `;
 
@@ -31,8 +30,24 @@ export const Container = styled(
 
 export const StyledCartIcon = styled(Image).attrs({
   source: CartIcon,
-  resizeMode: 'contain',
 })`
+  margin-right: 16px;
+  width: 30px;
+  height: 30px;
+`;
+
+export const BadgeText = styled(Text)`
+  font-weight: bold;
+  align-self: center;
+  color: white;
+`;
+
+export const BadgeContainer = styled(View)`
+  flex: 1;
+  position: absolute;
+  background-color: red;
+  border-radius: 20px;
+  top: 0px;
+  right: 0px;
   width: 20px;
-  height: 20px;
 `;

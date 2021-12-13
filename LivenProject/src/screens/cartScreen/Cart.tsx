@@ -11,21 +11,19 @@ const Cart = () => {
   const {cartList} = useAppState();
 
   const purchase = () => {
-    dispatch({type: 'setCartList', payload: null});
+    dispatch({type: 'clearCartList'});
 
     navigation.goBack();
   };
 
   return (
     <Container>
-      {cartList && (
-        <>
-          <StyledCartList products={cartList} />
-          <ConfirmButton onPress={() => purchase()}>
-            <ButtonText>Finalizar Compra</ButtonText>
-          </ConfirmButton>
-        </>
-      )}
+      <StyledCartList products={cartList} />
+      {cartList?.length ? (
+        <ConfirmButton onPress={() => purchase()}>
+          <ButtonText>Finalizar Compra</ButtonText>
+        </ConfirmButton>
+      ) : null}
     </Container>
   );
 };

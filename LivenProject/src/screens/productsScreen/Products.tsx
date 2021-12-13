@@ -9,7 +9,7 @@ import {useAppState, useAppDispatch} from '../../AppProvider';
 const Products = () => {
   const dispatch = useAppDispatch();
 
-  const {productList} = useAppState();
+  const {productList, cartList} = useAppState();
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -33,7 +33,23 @@ const Products = () => {
   };
 
   const addToCart = (item: ProductOnCart) => {
-    dispatch({type: 'setCartList', payload: [item]});
+    let productIsOnCart = false;
+    if (cartList?.length) {
+      let auxCartList = cartList.map(e => {
+        if (e.id === item.id) {
+          e.amount = e.amount + item.amount;
+          productIsOnCart = true;
+        }
+        return e;
+      });
+      if (productIsOnCart) {
+        dispatch({type: 'setCartList', payload: auxCartList});
+      } else {
+        dispatch({type: 'setCartList', payload: cartList.concat([item])});
+      }
+    } else {
+      dispatch({type: 'setCartList', payload: [item]});
+    }
     setModalVisible(false);
   };
 

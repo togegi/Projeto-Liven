@@ -12,6 +12,9 @@ type Action =
       payload: Product[];
     }
   | {
+      type: 'clearCartList';
+    }
+  | {
       type: 'setCartList';
       payload: ProductOnCart[];
     };
@@ -20,17 +23,23 @@ type Dispatch = (action: Action) => void;
 
 export type State = {
   productList?: Product[];
-  cartList?: ProductOnCart[];
+  cartList?: ProductOnCart[] | undefined;
 };
 
 const INITIAL_STATE: State = {
   productList: [],
+  cartList: [],
 };
 
 const reducer = (state = INITIAL_STATE, action: Action): State => {
   switch (action.type) {
     case 'setProductList':
       return {...state, productList: action.payload};
+    case 'clearCartList':
+      return {
+        ...state,
+        cartList: [],
+      };
     case 'setCartList':
       return {
         ...state,

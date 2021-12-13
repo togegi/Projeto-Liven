@@ -45,3 +45,7 @@ export const AmountButton = styled(TouchableOpacity)`
   width: 35px;
   margin-horizontal: 8px;
 `;
+
+export const Button = styled(TouchableOpacity)`
+  width: 150px;
+`;

@@ -33,6 +33,6 @@ export const StyledBackIcon = styled(Image).attrs({
   source: BackIcon,
   resizeMode: 'contain',
 })`
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 `;
